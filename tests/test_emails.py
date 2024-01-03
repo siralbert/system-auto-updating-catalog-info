@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import unittest
-from ../emails import generate
-from ../emails import send
+import sys
+sys.path.append("..")
+from emails import *
+
 
 class TestEmails(unittest.TestCase):
     def test_basic(self):
