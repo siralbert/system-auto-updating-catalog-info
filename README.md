@@ -9,6 +9,6 @@ A system for automatically updating catalog information with data provided by su
 4) A script which checks the health of the automated system
 5) Sending an email to alert administrator if system is unhealthy
 
-This project utilizes unit testing to make it easier for someone to modify the code or add features for their own use.
+This project utilizes unit testing to make the code easier to use, modify, or improve and apply the code for their own purposes.
 
 *Requires an SMTP server for sending out emails.

@@ -3,3 +3,4 @@ __pycache__/
 supplier-data
 *.tar.gz
 tmp/
+*.swp
