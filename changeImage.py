@@ -36,7 +36,5 @@ def convert_images(path,size=(128,128),rotation=0):
 
 if __name__ == "__main__":
 #    spawn_thread()
-#   TEST CASE
-  convert_image('supplier-data/images/sample.tif','supplier-data/images/tiff-image.jpeg')
   convert_images('supplier-data/images')
 
