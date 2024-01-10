@@ -4,3 +4,4 @@ supplier-data
 *.tar.gz
 tmp/
 *.swp
+.env
