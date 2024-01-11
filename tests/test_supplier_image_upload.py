@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
 import unittest
-from unittest.mock import MagicMock
+from unittest import mock
+#from unittest.mock import MagicMock
 import sys
 sys.path.append("..")
 
 from supplier_image_upload import *
+
+def mocked_requests_post(*args,**kwargs):
+    print("post request sent: . . .")
+
+# remove these unit tests?
 
 class TestSupplierImageUpload(unittest.TestCase):
   
@@ -15,6 +21,7 @@ class TestSupplierImageUpload(unittest.TestCase):
     url = "http://localhost/upload/"
     def web_server_post_received(request):
         return(201,f"request: {request} sent to web server")
+
 
   def test_basic(self):
     testcase = {'src_dir'  : 'supplier-data/images',
