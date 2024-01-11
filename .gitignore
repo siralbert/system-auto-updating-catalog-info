@@ -5,3 +5,4 @@ supplier-data
 tmp/
 *.swp
 .env
+bak/

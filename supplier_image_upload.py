@@ -7,11 +7,12 @@ import glob
 def upload_image(files,url="http://localhost/upload/"):
   try:
     r = requests.post(url, files=files)
+    if r.status_code == 201:
+        print(f"files:{files} uploaded successfully to url:{url}")
   except Exception as e:
     print(f"Exception: {e}\n")
+    print(f"{files} failed to upload to URL: {url}\n")
     print("Is the remote web server running or accepting requests?\n")
-    print(f"web server url: {url}  file names: {files}")
-    return {'url' : url,'files' : files}
   except ConnectionError as e:
     print(f"Connection Error: {e}")
 
