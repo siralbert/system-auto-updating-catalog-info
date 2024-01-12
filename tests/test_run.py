@@ -90,6 +90,14 @@ class TestRun(unittest.TestCase):
                 'url' : 'http://localhost/upload'}
     list=create_supplier_data_object_list([],[])
 
+# test uploading images, will raise an exception if no webserver found at localhost
+  def test_upload_descriptions(self):
+    descripfilenames, imagenames =  load_descripfilenames_imagefilenames()
+    objectlist = create_supplier_data_object_list(descripfilenames,imagenames)
+    result = upload_descriptions(objectlist,url="http://localhost:80/fruits")
+    print(result)
+    self.assertRaises(Exception,result)
+
   def tearDown(self):
     pass
 

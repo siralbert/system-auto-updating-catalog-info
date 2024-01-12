@@ -6,6 +6,7 @@ import requests
 from changeImage import * 
 from supplier_image_upload import *
 UPLOAD_IMAGES_URL="http://localhost/upload"
+UPLOAD_DESCRIPTIONS_URL="http://localhost:80/fruits"
 
 #two lines below not needed
 BASEPATH_SUPPLIER_TEXT_DES = 'supplier-data/descriptions/'
@@ -36,14 +37,23 @@ def create_supplier_data_object_list(list_files, list_images):
 
       list.append(data)
     return list
-"""
-for item in list:
-  print(item)
-  resp = requests.post('http://35.227.45.62:80/fruits/', json=item)
-  if resp.status_code != 201:
-    raise Exception('POST error status={}'.format(resp.status_code)) 
-  print('Created feedback ID: {}'.format(resp.json()["id"]))
-"""
+
+def upload_descriptions(jsonlist,url="http://localhost:80/fruits"):
+
+    for description in jsonlist:
+      try:
+          resp = requests.post(url, json=description)
+          if resp.status_code != 201:
+            raise Exception('POST error status={}'.format(resp.status_code)) 
+          print('Success! Created feedback ID: {}'.format(resp.json()["id"]))
+      except Exception as e:
+        print(f"Exception: {e}\n")
+        print(f"JSON object {description} failed to upload to URL: {url}\n")
+        print("Is the remote web server running or accepting requests?\n")
+      except ConnectionError as e:
+        print(f"Connection Error: {e}")
+
+
 if __name__ == "__main__":
 # pre-processes images to correct format before uploading to web server
   convert_images('supplier-data/images')
@@ -54,5 +64,4 @@ if __name__ == "__main__":
 # create a list of JSON objects from file data and image names
   objectlist= create_supplier_data_object_list(filelist,imagelist)
 # upload JSON object list containing descriptions and image names to web server
-  
-
+  upload_descriptions(objectlist,url=UPLOAD_DESCRIPTIONS_URL)
