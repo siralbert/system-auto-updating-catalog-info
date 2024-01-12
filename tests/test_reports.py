@@ -17,7 +17,7 @@ class TestReports(unittest.TestCase):
     expected = "" 
     self.assertEqual(testcase,expected)
 
-  def test_generate(self):
+  def test_generate_report(self):
     testcase = "" 
     expected = "" 
     self.assertEqual(testcase,expected)

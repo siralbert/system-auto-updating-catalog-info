@@ -5,7 +5,7 @@ import mimetypes
 import os.path
 import smtplib
 
-def generate(sender, recipient, subject, body, attachment_path):
+def generate_email(sender, recipient, subject, body, attachment_path):
   """Creates an email with an attachement."""
   # Basic Email formatting
   message = email.message.EmailMessage()
@@ -31,8 +31,17 @@ def generate(sender, recipient, subject, body, attachment_path):
     print('{} file not found'.format(attachment_path))
     return message
 
-def send(message):
+def send_email(message):
   """Sends the message to the configured SMTP server."""
   mail_server = smtplib.SMTP('localhost')
   mail_server.send_message(message)
   mail_server.quit()
+
+def generate_error_report(sender, recipient, subject, body):
+  """Sends error report to administrator""" 
+  message = email.message.EmailMessage()
+  message["From"] = sender
+  message["To"] = recipient
+  message["Subject"] = subject
+  message.set_content(body) 
+  return message
