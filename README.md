@@ -12,3 +12,4 @@ A system for automatically updating catalog information with data provided by su
 This project utilizes unit testing to make the code easier to use, modify, or improve and apply the code for their own purposes.
 
 *Requires an SMTP server for sending out emails.
+*Also, requires a web server to host the catalog information.
