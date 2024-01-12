@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 
 import unittest
-from unittest.mock import MagicMock
+from unittest import mock
 import sys
 sys.path.append("..")
 
 from supplier_image_upload import *
+
+def mocked_requests_post(*args,**kwargs):
+    print("post request sent: . . .")
+
+# non-functional unit tests, remove these unit tests?
 
 class TestSupplierImageUpload(unittest.TestCase):
   
