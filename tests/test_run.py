@@ -15,8 +15,6 @@ class TestRun(unittest.TestCase):
 
   @classmethod
   def setUpClass(cls):
-#    cls._connection = createExpensiveConnectionObject()
-
     #test cases require list of files in 'supplier-data/images' and in supplier-data/descriptions directories to pass
     #extract sample archive which creates a supplier-data folder and puts the required directories and files in it.
     if os.path.isdir("supplier-data"):
@@ -29,22 +27,15 @@ class TestRun(unittest.TestCase):
     else:
         print()
         print("An error occured: {} {}\n".format(result.stdout,result.stderr))
-
-    #may not need these variables to be initialized
-    cls.list_descripnames, cls.list_imagenames = load_descripfilenames_imagefilenames()
   
   @classmethod
   def tearDownClass(cls):
-#    cls._connection.destroy() 
+    shutil.rmtree('supplier-data')
     pass
 
-  # setup Mock web server for uploading images to 
-  # (patch requests.post method with a mock )
   # NOTE: setUp runs once per test instance
   def setUp(self):
-    url = "http://localhost/upload/"
-    def web_server_post_received(request):
-        return(201,f"request: {request} sent to web server")
+    pass
 
   def test_basic(self):
     testcase = {'src_dir'  : 'supplier-data/images',
