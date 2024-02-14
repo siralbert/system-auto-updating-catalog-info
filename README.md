@@ -1,5 +1,5 @@
 #
-# Automate updating catalog information
+# Automate updating product catalog information
 
 A system for automatically updating catalog information with data provided by suppliers.
 
@@ -11,5 +11,7 @@ A system for automatically updating catalog information with data provided by su
 
 This project utilizes unit testing to make the code easier to use, modify, or improve and apply the code for their own purposes.
 
-*Requires an SMTP server for sending out emails.
-*Also, requires a web server to host the catalog information.
+*Requires the following infrastructure services:
+ 1) An SMTP server for sending out emails.
+ 2) A web server to host the catalog information
+ 3) An API for script to interact with the web server
