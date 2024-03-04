@@ -5,8 +5,8 @@ import requests
  
 from changeImage import * 
 from supplier_image_upload import *
-UPLOAD_IMAGES_URL="http://localhost/upload"
-UPLOAD_DESCRIPTIONS_URL="http://localhost:80/fruits"
+UPLOAD_IMAGES_URL="http://localhost/api/upload"
+UPLOAD_DESCRIPTIONS_URL="http://localhost/api/fruits"
 
 #two lines below not needed
 BASEPATH_SUPPLIER_TEXT_DES = 'supplier-data/descriptions/'
@@ -45,7 +45,6 @@ def upload_descriptions(jsonlist,url="http://localhost:80/fruits"):
           resp = requests.post(url, json=description)
           if resp.status_code != 201:
             raise Exception('POST error status={}'.format(resp.status_code)) 
-          print('Success! Created feedback ID: {}'.format(resp.json()["id"]))
       except Exception as e:
         print(f"Exception: {e}\n")
         print(f"JSON object {description} failed to upload to URL: {url}\n")
