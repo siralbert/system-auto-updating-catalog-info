@@ -5,8 +5,9 @@ import requests
  
 from changeImage import * 
 from supplier_image_upload import *
-UPLOAD_IMAGES_URL="http://localhost/api/upload"
-UPLOAD_DESCRIPTIONS_URL="http://localhost/api/fruits"
+
+UPLOAD_IMAGES_URL="http://localhost:8000/api/upload"
+UPLOAD_DESCRIPTIONS_URL="http://localhost:8000/api/fruits"
 
 #two lines below not needed
 BASEPATH_SUPPLIER_TEXT_DES = 'supplier-data/descriptions/'
